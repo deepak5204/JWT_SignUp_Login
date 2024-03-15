@@ -12,6 +12,15 @@ const signToken = (id) => {
 
 exports.signup = async(req, res) => {
     const { name, email, password,confirmPassword,  profile } = req.body;
+
+    const user = await User.findOne({email});
+    if(user){
+        res.status(400).json({
+            staus: false,
+            message: 'User already registered, Please Login......'
+        })
+    }
+
     const newUser = await User.create({
         name,
         email,
@@ -19,8 +28,6 @@ exports.signup = async(req, res) => {
         confirmPassword,
         profile
     });
-
-    console.log(newUser);
 
     const token = signToken(newUser._id) 
     console.log(token);
