@@ -1,4 +1,6 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+
+const mongoose = require('mongoose');
 
 // Connection URI
 const uri = 'mongodb://localhost:27017/myDatabase';
@@ -11,7 +13,7 @@ mongoose.connect(uri)
     // Perform operations here (e.g., define models, perform queries)
 
     // Close the connection
-    mongoose.connection.close();
+    // mongoose.connection.close();
   })
   .catch(err => {
     console.error('Error connecting to MongoDB:', err);
