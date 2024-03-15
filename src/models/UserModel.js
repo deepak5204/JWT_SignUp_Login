@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         select: false
     },
+    confirmPassword: {
+        type: String,
+        required: [true, 'Please enter confirm password']
+    },
     profile: {
         type: String,
         default: 'USER',
